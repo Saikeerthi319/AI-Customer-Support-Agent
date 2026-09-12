@@ -1,0 +1,101 @@
+id,intent,expected_action,expected_reason
+101,technical_issue,AUTO_HANDLE,Seller Start Selling page shows Looking for something error; routine browser troubleshooting.
+102,other,ESCALATE,Spanish follow-up about external sellers lacks prior thread context; ambiguous ask.
+103,refund_return,ESCALATE,Promised Prime cancellation refund still missing after 3-5 day window.
+104,other,ESCALATE,Japanese fragment only names phone case; insufficient context for intent.
+105,delivery_issue,ESCALATE,Delivery cancelled after long wait by courier; failed delivery needs investigation.
+106,delivery_issue,ESCALATE,Carrier missing from orders and customer chasing Amazon; frustrated delivery accountability.
+107,other,AUTO_HANDLE,Simple thank-you with no support request.
+108,delivery_issue,ESCALATE,Repeating missed next-day Prime deliveries; recurring SLA failure.
+109,other,AUTO_HANDLE,Positive recognition for agent Zara; no issue to resolve.
+110,complaint,ESCALATE,Sarcastic question about earliest ETA meaning eternity; angry delay complaint.
+111,delivery_issue,ESCALATE,Missed guaranteed Lieferdatum; late-delivery claim needs order lookup.
+112,other,AUTO_HANDLE,Successful delivery and fit confirmation; positive update only.
+113,delivery_issue,ESCALATE,Prime/OnTrac deliveries running days behind promised dates; pattern delay report.
+114,delivery_issue,ESCALATE,Same package lost twice by delivery partner; lost-package investigation needed.
+115,delivery_issue,ESCALATE,Order not received yet with no order details; missing package needs lookup.
+116,order_status,ESCALATE,Customer chasing any status update across channels; frustrated lack of tracking info.
+117,complaint,ESCALATE,Threatens consequences unless latest product is sent today.
+118,delivery_issue,ESCALATE,Order undelivered for over a month; long-delay delivery investigation.
+119,refund_return,ESCALATE,Item untraceable per care team; customer requests payment refund.
+120,complaint,ESCALATE,Damaged-goods feedback blocked while positives post; alleges being ripped off.
+121,other,ESCALATE,Follow-up so you can't help me lacks original request context.
+122,complaint,ESCALATE,Agents refuse help and identity; customer-service failure complaint.
+123,order_status,AUTO_HANDLE,Spanish customer paid for same-day arrival and asks if package will arrive today.
+124,delivery_issue,ESCALATE,Preordered game arrived days after release; missed release-date delivery.
+125,order_status,AUTO_HANDLE,Tracking shows delivery date pending despite promised tomorrow; clear status check.
+126,delivery_issue,ESCALATE,"Gift item shipped with only a label, no box; packaging failure for gift."
+127,account_access,ESCALATE,Wants to redeem Amazon Pay while account on hold; account-hold access is sensitive.
+128,product_question,AUTO_HANDLE,Feature request to add UPI as a payment method.
+129,order_status,AUTO_HANDLE,Asking where preordered WWII game is; routine where-is-my-order.
+130,delivery_issue,AUTO_HANDLE,Says delivery was due today and should already be delivered; clear lateness.
+131,product_question,AUTO_HANDLE,Echo Plus shown out of stock for wedding gift; availability question.
+132,delivery_issue,AUTO_HANDLE,ETA slipped to Oct 12 after carrier handoff; clear transit delay question.
+133,other,AUTO_HANDLE,Thanks for resolved help; positive closure only.
+134,other,AUTO_HANDLE,Simple thank-you with no further ask.
+135,delivery_issue,ESCALATE,Items missing from delivery and CS called useless; missing items plus anger.
+136,payment_issue,ESCALATE,Japanese fake unpaid-balance/legal-threat message; likely scam/unauthorized billing.
+137,delivery_issue,ESCALATE,Tracking shows NY routing though customer not in NY; misrouted shipment.
+138,account_access,ESCALATE,Terse German Kindle .com account follow-up without full context.
+139,delivery_issue,ESCALATE,Honor 6x ordered Nov 6 still undelivered by Nov 16; multi-day late delivery.
+140,delivery_issue,ESCALATE,Next-day order slipped to the 21st; angry delayed-delivery complaint.
+141,payment_issue,ESCALATE,Payment issues with registration details shared publicly; billing needs secure channel.
+142,delivery_issue,ESCALATE,Systematic late deliveries with order ID after prior issues; recurring delay.
+143,refund_return,ESCALATE,"Requests price-difference refund; policy exception, not a canned FAQ."
+144,delivery_issue,ESCALATE,Nothing received as of now; vague missing-delivery follow-up.
+145,other,ESCALATE,Link-only tweet with no readable request; ambiguous.
+146,delivery_issue,ESCALATE,Still no package for given order number; missing delivery needs investigation.
+147,cancellation_change,AUTO_HANDLE,Asks if turning off auto-renewal cancels subscription; clear membership policy question.
+148,technical_issue,ESCALATE,Still awaiting Kindle issue resolution; unresolved device problem.
+149,other,AUTO_HANDLE,Polite thanks and tip of the hat; no issue.
+150,other,AUTO_HANDLE,Asks for Maggi Nutri Quiz and contest winner list; contest info request.
+151,technical_issue,AUTO_HANDLE,New app not working; routine app troubleshooting.
+152,complaint,ESCALATE,Accuses Amazon employees of stealing packages; serious theft allegation.
+153,delivery_issue,ESCALATE,Blames incompetent delivery person for failed drop; delivery failure follow-up.
+154,order_status,AUTO_HANDLE,Spanish ask why package arrival date keeps changing; clear ETA status question.
+155,product_question,AUTO_HANDLE,Asks when Blackberry Keyone discount will return; pricing/availability question.
+156,cancellation_change,ESCALATE,Cancellation not reflected despite email; cancel status needs account check.
+157,payment_issue,ESCALATE,Card charged without consent despite no Prime renew; unauthorized charge.
+158,other,AUTO_HANDLE,Positive early-delivery and packing feedback; no issue.
+159,delivery_issue,ESCALATE,Parcel left on doorstep with false neighbor note; unsafe delivery practice.
+160,payment_issue,ESCALATE,Japanese fake Amazon billing/scam SMS; fraud handling.
+161,delivery_issue,ESCALATE,Ship notice received but CD never arrived.
+162,order_status,AUTO_HANDLE,Status stuck on dispatching soon with only vague date; clear status concern.
+163,other,AUTO_HANDLE,Package arrived; feedback on LaserShip and Prime ship options.
+164,other,AUTO_HANDLE,Joking about receiving Amazon credit card; no support request.
+165,other,ESCALATE,Incomplete Black Friday sale mention with no clear ask.
+166,refund_return,AUTO_HANDLE,How to return faulty Rocket Dog boots; clear return how-to.
+167,delivery_issue,AUTO_HANDLE,Spanish Mario Odyssey not arriving at office before weekend; late/missing delivery worry.
+168,refund_return,ESCALATE,Duplicate Nintendo delivery charged twice; auto-email denies refund.
+169,delivery_issue,ESCALATE,Parcel left visible outside and contents damaged; damage plus unsafe leave.
+170,delivery_issue,ESCALATE,Prime delivery arrived with security tags still attached; fulfillment quality issue.
+171,complaint,ESCALATE,Angry complaint about terrible game stream and app quality.
+172,other,ESCALATE,Link-only mention with no stated problem; ambiguous.
+173,complaint,ESCALATE,"Angry packaging/waste complaint; needs judgment, not auto-reply."
+174,product_question,AUTO_HANDLE,Japanese ask whether Kindle needs Wi-Fi to download; clear product how-to.
+175,refund_return,ESCALATE,Refund requested but told to return item never received; conflicting return case.
+176,account_access,ESCALATE,Cannot retrieve password; account recovery is sensitive.
+177,delivery_issue,ESCALATE,Driver cannot find house despite visible number; needs carrier follow-up.
+178,other,ESCALATE,Fragment about something on site plus link; missing prior context.
+179,other,AUTO_HANDLE,Praises free replacement after wrong-address preorder; positive feedback.
+180,other,ESCALATE,Vague what about the illusion of quality with no actionable detail.
+181,delivery_issue,ESCALATE,Prime delivery cancelled at last moment; angry failed-delivery complaint.
+182,refund_return,ESCALATE,Cancelled undelivered laptop; seeking confirmation of refund timeline.
+183,delivery_issue,AUTO_HANDLE,Asks recourse if shipment misses guaranteed delivery date; clear policy question.
+184,technical_issue,ESCALATE,Teases about reporting a system bug without details; vague technical claim.
+185,complaint,ESCALATE,Waited hours after complaint form with no help; angry service failure.
+186,complaint,ESCALATE,Hour-long hold then disconnect; demands ban; severe CS complaint.
+187,order_status,ESCALATE,Says tracking is assumption not real status; frustrated accuracy complaint.
+188,account_access,ESCALATE,No specialist email while account on hold; account-hold follow-up is sensitive.
+189,complaint,ESCALATE,Calls festival experience a scam; angry scam/service allegation.
+190,payment_issue,ESCALATE,Charged for Prime after cancelling subscription; unauthorized billing.
+191,other,AUTO_HANDLE,Praise for top-notch customer service; no issue.
+192,payment_issue,ESCALATE,Unordered item may be scam and not on account; possible fraud.
+193,other,AUTO_HANDLE,Portuguese excitement about buying nine books; no support ask.
+194,payment_issue,ESCALATE,Rewards points could not re-apply after address edit; checkout/rewards billing glitch.
+195,payment_issue,ESCALATE,Bank charges continue after Amazon closed account; high-risk unauthorized billing.
+196,delivery_issue,ESCALATE,Two consecutive late/unshipped/out-of-stock failures; recurring delivery failure.
+197,complaint,ESCALATE,Demands a direct answer instead of links; prior question unknown.
+198,product_question,AUTO_HANDLE,Echo in India has no Alexa option to connect Fire TV; compatibility question.
+199,other,ESCALATE,One-word Nope reply with no standalone context.
+200,complaint,ESCALATE,French sarcasm about Twitter responsiveness with screenshot; service complaint.

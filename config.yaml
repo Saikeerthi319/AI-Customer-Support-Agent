@@ -1,9 +1,9 @@
-brand: Acme Mobile
+brand: AmazonHelp
 paths:
-  conversations: data/sample_conversations.csv
+  conversations: data/annotation_train.csv
   golden_set: data/golden_set.csv
   metrics: reports/generated/metrics.json
 model:
   min_intent_confidence: 0.55
-  min_retrieval_similarity: 0.18
+  min_retrieval_similarity: 0.45
   top_k: 3

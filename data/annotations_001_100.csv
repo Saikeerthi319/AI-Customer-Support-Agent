@@ -1,0 +1,101 @@
+id,intent,expected_action,expected_reason
+1,delivery_issue,ESCALATE,Preorder delayed with redelivery promised; needs tracking follow-up.
+2,other,ESCALATE,Incomplete follow-up about an email; missing prior context.
+3,account_access,ESCALATE,AWS domain/S3 recovery while closing account is high-risk.
+4,complaint,ESCALATE,Angry report about Amazon phishing scam emails.
+5,complaint,ESCALATE,Italian tweet compares a real Prime order to a simulated listing; possible fraud screenshot.
+6,technical_issue,ESCALATE,Modem RMA/service denial requires specialist handling.
+7,complaint,ESCALATE,Repeated contacts with no clear next step or issue detail.
+8,refund_return,ESCALATE,Warped LP; refund/reship demanded without returning item.
+9,refund_return,ESCALATE,Asks if next-day delivery fee is refundable; needs order check.
+10,complaint,ESCALATE,General CS redirect complaint without actionable request.
+11,complaint,ESCALATE,Demands resolution but states no specific problem.
+12,order_status,AUTO_HANDLE,Clear ask for PS4 order delivery timing.
+13,delivery_issue,ESCALATE,Package marked delivered but missing; theft/refund concern.
+14,payment_issue,ESCALATE,Unexpected Prime charge for non-member needs billing review.
+15,delivery_issue,ESCALATE,Arrived with severe package dent; damage claim needs review.
+16,delivery_issue,ESCALATE,Courier skipped doorbell/voicemail; needs delivery investigation.
+17,refund_return,ESCALATE,Wants bank refund of unused Amazon Pay/balance; money movement needs a human.
+18,complaint,ESCALATE,Broad unprofessional CS complaint without a concrete ask.
+19,other,AUTO_HANDLE,Positive Alexa feedback needing only acknowledgment.
+20,other,ESCALATE,Says will DM an incident; no details in public thread.
+21,other,ESCALATE,Bare @mention with no customer message content.
+22,payment_issue,ESCALATE,Cancelled unshipped order still charged; authorization/charge needs account review.
+23,technical_issue,ESCALATE,Something not opening; target app/link unspecified.
+24,refund_return,ESCALATE,Return refund delayed and customer frustrated; needs lookup.
+25,account_access,ESCALATE,accountchange email then silent order; possible account takeover.
+26,other,AUTO_HANDLE,Simple thanks for prior help; no further action needed.
+27,complaint,ESCALATE,Alleges Amazon Live fake/scam orders; fraud investigation.
+28,product_question,AUTO_HANDLE,Asks when Dunkirk will be available to pre-order.
+29,complaint,ESCALATE,Suspicious phone/MMS contact; phishing/security concern.
+30,complaint,ESCALATE,Disappointed with CS but no specific issue described.
+31,other,ESCALATE,Points to prior thread only; insufficient standalone context.
+32,product_question,AUTO_HANDLE,Asks if Prime can be bought before current membership ends.
+33,complaint,ESCALATE,No callback within promised window; unresolved prior case.
+34,delivery_issue,ESCALATE,Same-day delivery window nearly missed; live tracking needed.
+35,delivery_issue,ESCALATE,CS said lost in transit then refund/reorder; missing package plus money path.
+36,technical_issue,ESCALATE,App/IVR language and menu options blocking support access.
+37,other,AUTO_HANDLE,Positive magazine subscription praise only.
+38,refund_return,ESCALATE,Wrong phone delivered; replacement pickup overdue.
+39,product_question,AUTO_HANDLE,Asks whether purchases are TV series vs films.
+40,other,ESCALATE,Dumps order metadata with no explicit question.
+41,complaint,ESCALATE,Outsourcing rant; no actionable support request.
+42,product_question,AUTO_HANDLE,Asks OnePlus5T pre-order vs direct sale availability.
+43,refund_return,ESCALATE,Rental book falling apart; needs return/replace assessment.
+44,delivery_issue,ESCALATE,Warehouse loss and delayed dates before eventual refund.
+45,delivery_issue,ESCALATE,Order not delivered and no tracking info provided.
+46,complaint,ESCALATE,Seller/Amazon ping-pong with no resolution.
+47,order_status,ESCALATE,"10-day silence after unhelpful CS; needs investigation, not a canned reply."
+48,complaint,ESCALATE,Multiple failed support attempts on undescribed scenario.
+49,other,AUTO_HANDLE,Confirms package received; acknowledgment only.
+50,delivery_issue,ESCALATE,Still not received after CS delivery commitment.
+51,other,ESCALATE,Fragmentary feature comment without clear request.
+52,complaint,ESCALATE,Replied and called CS with no result; needs escalation.
+53,other,ESCALATE,Says no update; prior issue context missing.
+54,delivery_issue,ESCALATE,Odd shipping status and time-sensitive need before surgery.
+55,complaint,ESCALATE,Disputes unavailable-at-home claim; wants delivery proof.
+56,delivery_issue,ESCALATE,Package bore rival marketplace branding; wrong-ship concern.
+57,account_access,ESCALATE,Asks if email is genuine; phishing verification needed.
+58,refund_return,ESCALATE,Asks when refund will start after return and courier bills; funds still outstanding.
+59,delivery_issue,ESCALATE,High-value laptop left unattended with damaged box.
+60,complaint,ESCALATE,Assigned agent stopped replying; needs reassignment.
+61,other,ESCALATE,Short French follow-up without standalone issue detail.
+62,technical_issue,ESCALATE,Eurosport not working for user/colleagues; needs check.
+63,other,ESCALATE,Link-only tweet with no stated question.
+64,product_question,AUTO_HANDLE,Clear FAQ: Amazon Pay with credit-card EMI eligibility.
+65,delivery_issue,ESCALATE,Two timed deliveries look unlikely to arrive.
+66,account_access,ESCALATE,Account hacked with repeated failed CS contacts.
+67,other,AUTO_HANDLE,Asks how to pitch a business idea; policy link suffices.
+68,product_question,ESCALATE,Requests Alexa CEC TV control feature; not routine.
+69,technical_issue,ESCALATE,Error message persists; needs troubleshooting context.
+70,complaint,ESCALATE,Meta complaint about CS tone/appreciation; no case detail.
+71,account_access,ESCALATE,Prime Video account repeatedly cancelled unexpectedly.
+72,complaint,ESCALATE,Reports repeated fraudulent activity despite Prime.
+73,complaint,ESCALATE,Transferred across numbers/tickets without help.
+74,other,AUTO_HANDLE,Positive fast-delivery praise; acknowledgment only.
+75,refund_return,ESCALATE,Called CS but still has not received refunded money.
+76,other,AUTO_HANDLE,Happy books delivery vibe; no support request.
+77,refund_return,ESCALATE,Return pickup requested but collector has not come.
+78,other,ESCALATE,Cryptic .fr smile reply; intent unclear.
+79,delivery_issue,ESCALATE,Prime item 5 days late while other same-day orders arrived.
+80,complaint,ESCALATE,Two weeks of repeated escalate-and-wait replies.
+81,other,AUTO_HANDLE,Playful gift praise; no actionable issue.
+82,account_access,ESCALATE,"Unauthorized orders, suspended account, bank dispute."
+83,complaint,ESCALATE,States issue unresolved without describing it.
+84,other,AUTO_HANDLE,Asks which email/address to contact support.
+85,refund_return,ESCALATE,Wrong USB cable type received after customs delay.
+86,delivery_issue,ESCALATE,Multiple failed delivery attempts without phone contact.
+87,delivery_issue,ESCALATE,Prime shipments often delayed or stuck in network.
+88,delivery_issue,ESCALATE,Delivery instructions ignored after multiple escalations.
+89,order_status,AUTO_HANDLE,Unshipped order due tomorrow; asks if still on time.
+90,order_status,AUTO_HANDLE,Clear request for an update on a slow-moving order.
+91,refund_return,ESCALATE,Replacement shipping minimum fee after partial refund.
+92,technical_issue,AUTO_HANDLE,Needs mobile steps to find carrier/order shipping info.
+93,other,AUTO_HANDLE,Spanish thanks/praise; no support action required.
+94,refund_return,ESCALATE,Disappointed and charged $30 to return item.
+95,technical_issue,ESCALATE,Game bonus code redeem fails with unexpected error.
+96,other,ESCALATE,Image/link only; customer intent not stated.
+97,order_status,AUTO_HANDLE,Prime package still preparing; asks about same-day arrival.
+98,delivery_issue,ESCALATE,Prime deliveries arriving late more often.
+99,other,AUTO_HANDLE,Casual note about using Amazon again; no issue.
+100,refund_return,ESCALATE,Wrong item (fake blood vs screen protector) received.

@@ -2,9 +2,9 @@
 
 ## Goal
 
-Create two frozen files from the prepared AmazonHelp pairs:
+Create two conversation-disjoint files from the prepared AmazonHelp pairs:
 
-- `data/annotation_train.csv`: 200-400 labeled examples used to develop the classifier.
+- `data/annotation_train.csv`: labeled examples used to develop the classifier (50 in the checked-in sample; 200-400 preferred).
 - `data/golden_set.csv`: 150-250 labeled examples held out until final evaluation.
 
 Never use the same `conversation_id` in both files.
@@ -42,13 +42,14 @@ Use `AUTO_HANDLE` only when the message is a routine request with clear historic
 3. Assign `AUTO_HANDLE` or `ESCALATE` using the rules above.
 4. Write a short reason, especially for escalation.
 5. Re-read all labels once after the first pass.
-6. Move a random 150-250 examples to `data/golden_set.csv` and freeze them.
-7. Keep the remaining labeled examples in `data/annotation_train.csv`.
+6. Review the AI-drafted annotation batches and correct every disagreement.
+7. Run `python -m src.build_datasets` to make the deterministic split.
+8. Confirm `label_status=second_pass_reviewed` after a full re-read, or `human_verified` only if a person independently confirmed every row.
 
-The existing `data/golden_set_amazonhelp.csv` is an unlabeled 200-row sample. Label it first, then rename/copy it to `data/golden_set.csv` only after review. Create the training file from a separate sample.
+The source `data/golden_set_amazonhelp.csv` is an unlabeled 200-row sample. The checked-in annotation batches are drafts, not proof of candidate hand-labeling.
 
 ## Required columns
 
 `id, conversation_id, customer_message, agent_reply, intent, expected_action, expected_reason`
 
-Do not report final metrics until every row in the golden set has non-empty `intent` and `expected_action` values.
+Do not submit final metrics until every row is complete and human-verified.

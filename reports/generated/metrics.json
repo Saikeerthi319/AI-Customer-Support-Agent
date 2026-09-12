@@ -1,0 +1,103 @@
+{
+  "brand": "AmazonHelp",
+  "annotation_status": [
+    "second_pass_reviewed"
+  ],
+  "train_rows": 50,
+  "golden_rows": 150,
+  "conversation_overlap": 0,
+  "intent": {
+    "majority_macro_f1": 0.038,
+    "tfidf_logistic_regression_macro_f1": 0.087,
+    "agent_macro_f1": 0.337,
+    "agent_report": {
+      "account_access": {
+        "precision": 0.6,
+        "recall": 0.375,
+        "f1-score": 0.46153846153846156,
+        "support": 8.0
+      },
+      "cancellation_change": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 1.0
+      },
+      "complaint": {
+        "precision": 0.5,
+        "recall": 0.12,
+        "f1-score": 0.1935483870967742,
+        "support": 25.0
+      },
+      "delivery_issue": {
+        "precision": 0.3333333333333333,
+        "recall": 0.8285714285714286,
+        "f1-score": 0.47540983606557374,
+        "support": 35.0
+      },
+      "order_status": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 9.0
+      },
+      "other": {
+        "precision": 0.5161290322580645,
+        "recall": 0.48484848484848486,
+        "f1-score": 0.5,
+        "support": 33.0
+      },
+      "payment_issue": {
+        "precision": 0.5,
+        "recall": 0.25,
+        "f1-score": 0.3333333333333333,
+        "support": 8.0
+      },
+      "product_question": {
+        "precision": 1.0,
+        "recall": 0.125,
+        "f1-score": 0.2222222222222222,
+        "support": 8.0
+      },
+      "refund_return": {
+        "precision": 0.9,
+        "recall": 0.6,
+        "f1-score": 0.72,
+        "support": 15.0
+      },
+      "technical_issue": {
+        "precision": 0.6,
+        "recall": 0.375,
+        "f1-score": 0.46153846153846156,
+        "support": 8.0
+      },
+      "accuracy": 0.44,
+      "macro avg": {
+        "precision": 0.4949462365591398,
+        "recall": 0.31584199134199137,
+        "f1-score": 0.33675907017948264,
+        "support": 150.0
+      },
+      "weighted avg": {
+        "precision": 0.5086594982078853,
+        "recall": 0.44,
+        "f1-score": 0.40404742512516173,
+        "support": 150.0
+      }
+    }
+  },
+  "trust": {
+    "auto_handle_rate": 0.013,
+    "correct_auto_handle_rate": 0.0,
+    "auto_handle_precision": 0.0,
+    "unsafe_auto_handle_rate": 0.013,
+    "escalation_recall": 0.982
+  },
+  "judge_validation": {
+    "status": "independent rater vs gpt-4o-mini",
+    "n": 40,
+    "aggregate_spearman_rho": 0.314,
+    "p_value": 0.0485,
+    "minimum_comparison_rows": 30
+  }
+}

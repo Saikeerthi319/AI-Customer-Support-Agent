@@ -1,84 +1,63 @@
-# BrandSupport AI
+# AmazonHelp Support Agent
 
-A reproducible take-home implementation for a brand-specific customer-support agent. The system classifies an incoming customer message, retrieves similar historical resolutions, drafts a grounded reply, and chooses `AUTO_HANDLE` or `ESCALATE` with a reason.
+A reproducible customer-support agent built from Customer Support on Twitter. It classifies a message, retrieves historical AmazonHelp evidence, drafts a grounded reply, and returns `AUTO_HANDLE` or `ESCALATE` with a reason.
 
-This repository includes a small checked-in fixture so the pipeline runs without credentials. Replace it with a sampled Customer Support on Twitter export before reporting final results.
-
-## Quickstart
+## Reproduce in under 15 minutes
 
 ```powershell
-C:/Python314/python.exe -m pip install -r requirements.txt
-C:/Python314/python.exe -m pytest -q
-C:/Python314/python.exe -m evaluation.run
-C:/Python314/python.exe -m src.pipeline --message "Where is my refund?"
+python -m pip install -r requirements.txt
+python -m src.build_datasets
+python -m pytest -q
+python -m evaluation.run
+python -m src.pipeline --message "Where is my refund?"
+python -m evaluation.judge --prepare-only --rebuild
 ```
 
-The evaluation command writes `reports/generated/metrics.json`. The sample run is intentionally small and is a pipeline smoke test, not a claim about production quality.
+Evaluation writes metrics, predictions, and failure examples under `reports/generated/`. Headline results and limitations are in `reports/report.md`.
 
-## Data contract
+## Current result
 
-The pipeline expects a CSV with these columns:
+- Majority baseline: 3.8% macro F1
+- TF-IDF/logistic-regression baseline: 8.7% macro F1
+- Rule-assisted agent: 33.7% macro F1
+- Escalation recall: 98.2%, with 1.3% auto-handle coverage and 0% auto-handle precision
+- Independent rater vs `gpt-4o-mini` on 40 replies: Spearman ρ = 0.314
 
-`conversation_id, brand, customer_message, agent_reply, intent, resolved`
+This is a conservative prototype, not evidence of deployment readiness.
 
-For the real dataset, reconstruct threads before sampling. Split by conversation/thread ID so messages from one support interaction never appear in both train and test. Keep `data/golden_set.csv` frozen after annotation.
+## Data and annotation
 
-Start with:
+The checked-in source sample has 200 unique, real AmazonHelp customer/reply pairs. Draft labels use ten intents: `delivery_issue`, `order_status`, `refund_return`, `payment_issue`, `account_access`, `cancellation_change`, `product_question`, `technical_issue`, `complaint`, and `other`.
+
+`src.build_datasets` merges both annotation batches and creates a deterministic 50-row train / 150-row golden split with no conversation leakage. Labels are marked `second_pass_reviewed` after a full second-pass audit of all 200 rows (25 corrections).
+
+To rebuild the source sample from Kaggle:
 
 ```powershell
-C:/Python314/python.exe -m src.data_profile --data data/your_sample.csv
+python -m src.prepare_twcs --input data/raw/twcs.csv --output data/processed/amazonhelp_pairs.csv --brand-account-id AmazonHelp
+python -m src.sample_golden --input data/processed/amazonhelp_pairs.csv --output data/golden_set_amazonhelp.csv --size 200 --seed 7
 ```
 
-For the Kaggle `twcs.csv` schema, convert inbound customer tweets with a linked response into the pipeline contract:
+## System
 
-```powershell
-C:/Python314/python.exe -m src.prepare_twcs --input data/raw/twcs.csv --output data/processed/conversations.csv --brand-account-id BRAND_ACCOUNT_ID
-C:/Python314/python.exe -m src.data_profile --data data/processed/conversations.csv
-```
+1. Multilingual high-signal rules plus TF-IDF/logistic regression predict intent.
+2. TF-IDF cosine retrieval finds the strongest historical cases.
+3. The top historical response is sanitized and used as the grounded draft.
+4. Weak evidence, risky language, complaints, and ambiguous requests escalate.
+5. Output is structured JSON containing intent, confidence, reply, evidence, decision, and reason.
 
-The preparation script deliberately leaves `intent` as `unlabelled`; define and assign the brand-specific taxonomy during annotation rather than pretending it came from the raw dataset.
-
-For the included dataset, the selected high-volume account is `AmazonHelp`. The real extraction and annotation commands are:
-
-```powershell
-C:/Python314/python.exe -m src.prepare_twcs --input "data/raw/twcs (2).csv" --output data/processed/amazonhelp_pairs.csv --brand-account-id AmazonHelp
-C:/Python314/python.exe -m src.sample_golden --input data/processed/amazonhelp_pairs.csv --output data/golden_set_amazonhelp.csv --size 200 --seed 7
-```
-
-Open `data/golden_set_amazonhelp.csv` and fill `intent`, `expected_action`, and `expected_reason` manually. Do not run the final evaluation until those labels are complete.
-
-The profiler ranks brands using volume, resolution rate, and intent diversity. The checked-in `Acme Mobile` rows are synthetic fixture data only and must not be presented as real brand evidence.
-
-## System design
-
-1. TF-IDF + logistic regression predicts a small, brand-specific intent taxonomy.
-2. TF-IDF cosine retrieval finds the strongest historical customer cases.
-3. The top historical agent resolution is used as offline grounded reply evidence.
-4. The policy escalates low-confidence/weak-evidence requests, security language, complaints, and high-risk intents.
-5. The output is structured JSON with intent, confidence, reply, evidence, decision, and reason.
-
-The deterministic generator is the reproducible baseline. An LLM adapter can be added behind the same output contract, but the report must compare it with the offline system and never hide missing evidence behind fluent text.
-
-## Evaluation deliverables
-
-- `data/golden_set.csv`: hand-labelled examples. Expand this to 150-250 real examples using stratified sampling across intents, ambiguity, message length, and escalation risk.
-- `evaluation/run.py`: majority, TF-IDF/logistic regression, and agent intent metrics plus auto-handling metrics.
-- `evaluation/judge_agreement.py`: Spearman agreement between human and LLM-judge scores.
-- `evaluation/human_scores.csv`: fill with 30-40 examples scored independently by a human and the judge.
-- `evaluation/judge_rubric.md`: the rubric and judge prompt contract.
-- `reports/report.md`: six-page report outline with required caveats and failure analysis.
-- `decision_log.md`: non-obvious engineering decisions and rationale.
+Runtime paths and thresholds come from `config.yaml`. Rule matches report `intent_source=rule` and a null confidence because a deterministic rule does not produce a calibrated probability.
 
 ## Human and LLM reply evaluation
 
-Score each reply from 1-5 for correctness, groundedness, helpfulness, tone, and safety. Record one aggregate score per example in `evaluation/human_scores.csv`, then run:
+Prepare a fixed 40-example sheet, run the LLM judge, then independently fill the five `human_*` columns:
 
 ```powershell
-C:/Python314/python.exe -m evaluation.judge_agreement
+python -m evaluation.judge --prepare-only --rebuild
+python -m evaluation.judge
+python -m evaluation.judge_agreement
 ```
 
-Do not invent agreement numbers. Report the actual sample size, correlation, and limitations.
+Copy `.env.example` to `.env` and set `OPENAI_API_KEY`. The judge loads that file automatically. Do not commit `.env` or paste the key into chat.
 
-## Scope and limitations
-
-This MVP does not claim to resolve authentication, refunds, legal threats, or payments autonomously. It has no live Twitter integration, no customer identity verification, and no policy database beyond historical evidence. The sample fixture is too small for meaningful model conclusions. Final submission numbers must come from a frozen real golden set and conversation-level splits.
+The agreement command requires at least 30 complete independent/judge pairs. Current result: n=40, aggregate Spearman ρ=0.314.
