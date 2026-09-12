@@ -1,0 +1,9 @@
+brand: Acme Mobile
+paths:
+  conversations: data/sample_conversations.csv
+  golden_set: data/golden_set.csv
+  metrics: reports/generated/metrics.json
+model:
+  min_intent_confidence: 0.55
+  min_retrieval_similarity: 0.18
+  top_k: 3

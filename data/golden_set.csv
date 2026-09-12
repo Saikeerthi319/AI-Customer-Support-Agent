@@ -1,0 +1,13 @@
+id,conversation_id,customer_message,intent,expected_action
+1,c001,My refund is still pending,refund_return,AUTO_HANDLE
+2,c003,My delivery is late,delivery_issue,AUTO_HANDLE
+3,c005,I was billed twice,payment_issue,AUTO_HANDLE
+4,c007,I cannot access my account,account_access,AUTO_HANDLE
+5,c009,The app keeps crashing,technical_issue,AUTO_HANDLE
+6,c011,Stop my order,cancellation_change,AUTO_HANDLE
+7,c013,How can I change plans?,other,AUTO_HANDLE
+8,c015,My account was hacked,account_access,ESCALATE
+9,c017,Do you offer roaming?,product_question,AUTO_HANDLE
+10,c019,I want to speak to a manager,complaint,ESCALATE
+11,c022,Where is my refund?,refund_return,AUTO_HANDLE
+12,c020,You stole my money,complaint,ESCALATE

@@ -1,0 +1,25 @@
+conversation_id,brand,customer_message,agent_reply,intent,resolved,customer_id
+c001,Acme Mobile,"My refund has not arrived yet","Refunds usually appear within five business days. Please send your order number so we can check it.",refund_delay,true,u001
+c002,Acme Mobile,"Where is the money from my return?","We can check the return status with your order number and confirm the refund timeline.",refund_delay,true,u002
+c003,Acme Mobile,"My package is late","Sorry about the delay. Please share your tracking number and we will check the latest delivery scan.",delivery_delay,true,u003
+c004,Acme Mobile,"The tracking has not moved in a week","We are sorry the tracking has stalled. Send the tracking number and our delivery team can investigate.",delivery_delay,true,u004
+c005,Acme Mobile,"I was charged twice for one order","We can investigate the duplicate charge. Please provide the order number and do not share full card details.",duplicate_charge,true,u005
+c006,Acme Mobile,"Why did my card get charged twice?","Please send the order number through a private channel so we can review the duplicate payment.",duplicate_charge,true,u006
+c007,Acme Mobile,"I cannot log in to my account","Please use the password reset link and let us know if you still cannot access the account.",account_access,true,u007
+c008,Acme Mobile,"My password reset email never came","Check your spam folder and request another reset email. We can help further if access is still blocked.",account_access,true,u008
+c009,Acme Mobile,"The app crashes when I open it","Please update the app and restart your device. If it still crashes, send your device model and app version.",technical_issue,true,u009
+c010,Acme Mobile,"Your latest update broke the app","We are sorry about that. Please share your app version and device model so the technical team can investigate.",technical_issue,true,u010
+c011,Acme Mobile,"I want to cancel my order","We can check whether the order has shipped. Please send the order number through a private channel.",cancellation,true,u011
+c012,Acme Mobile,"Can I stop this order before it ships?","We will check the order status and explain the available cancellation options.",cancellation,true,u012
+c013,Acme Mobile,"How do I change my plan?","You can review available plans in your account settings. We can help if you share which plan you want.",plan_change,true,u013
+c014,Acme Mobile,"I want to switch to a cheaper plan","We can explain the plan options and any account changes needed before switching.",plan_change,true,u014
+c015,Acme Mobile,"Someone accessed my account and changed the email","Please do not share passwords or codes. We are escalating this security issue to a specialist immediately.",security_issue,true,u015
+c016,Acme Mobile,"I think my account was hacked","For your protection, we are escalating this account-security report to a specialist.",security_issue,true,u016
+c017,Acme Mobile,"What are your phone plans?","You can compare current plans on our plans page. Tell us what usage you need and we can point you in the right direction.",product_question,true,u017
+c018,Acme Mobile,"Do you support international roaming?","Roaming availability depends on the destination and plan. Tell us the country and plan so we can check.",product_question,true,u018
+c019,Acme Mobile,"This is terrible service and I want a manager","We are sorry this has been frustrating. We are escalating your complaint so a specialist can review it.",complaint,true,u019
+c020,Acme Mobile,"Your company stole my money","We are escalating this complaint for urgent human review. Please do not post payment details publicly.",complaint,true,u020
+c021,Acme Mobile,"How long does delivery usually take?","Most orders arrive within the timeframe shown at checkout. Share your order number if your delivery is outside that window.",delivery_delay,true,u021
+c022,Acme Mobile,"Can I get a refund for my order?","We can review the order and explain the refund options. Please send the order number privately.",refund_delay,true,u022
+c023,Acme Mobile,"The app shows an error when I pay","Please do not retry repeatedly. Share the error text and device details so our technical team can investigate.",technical_issue,true,u023
+c024,Acme Mobile,"Please delete my account","We can help with account deletion after verifying the request through a private channel.",account_access,true,u024
